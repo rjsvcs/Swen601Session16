@@ -46,4 +46,23 @@ class NodeStackTest {
         assertEquals(0, stack.size());
         assertEquals(expected, actual);
     }
+
+    @Test
+    void pushTwoPeekPop() {
+        Stack<String> stack = new NodeStack<>();
+        String[] expected = { "123", "234" };
+        stack.push(expected[0]);
+        stack.push(expected[1]);
+
+        String actualPeek1 = stack.peek();
+        String actualPop1 = stack.pop();
+        String actualPeek2 = stack.peek();
+        String actualPop2 = stack.pop();
+
+        assertEquals(0, stack.size());
+        assertEquals(expected[1], actualPeek1);
+        assertEquals(expected[1], actualPop1);
+        assertEquals(expected[0], actualPeek2);
+        assertEquals(expected[0], actualPop2);
+    }
 }
